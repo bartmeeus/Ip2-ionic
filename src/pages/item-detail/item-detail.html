@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ item.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
+  </div>
+
+  <div class="item-detail" padding>
+
+    <ion-label color="primary" stacked>Naam</ion-label>
+    <h2 *ngIf="editing != 1">{{item.name}}</h2>
+    <ion-textarea *ngIf="editing == 1" [(ngModel)]="item.name">{{item.name}}</ion-textarea>
+
+
+    <ion-label color="primary" stacked>Beschrijving</ion-label>
+    <p *ngIf="editing != 1">{{item.description}}</p>
+    <ion-textarea *ngIf="editing == 1" [(ngModel)]="item.description"> </ion-textarea>
+
+    <ion-label color="primary" stacked>Tag</ion-label>
+    <p *ngIf="editing != 1">{{item.tags}}</p>
+    <ion-textarea *ngIf="editing == 1" [(ngModel)]="item.tags">{{item.tags}}</ion-textarea>
+
+    <button ion-button (click)="editing === 1 ? save() : editing=1">{{editing===1 ? "Opslaan" :
+      "Wijzigen"}}
+    </button>
+  </div>
+
+</ion-content>
