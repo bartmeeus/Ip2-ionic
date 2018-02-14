@@ -3,6 +3,7 @@ import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
 import { Theme } from '../../models/theme';
 import { Themes } from '../../providers/providers';
+import {ItemDetailTabsPage} from "../item-detail-tabs/item-detail-tabs";
 
 @IonicPage()
 @Component({
@@ -47,6 +48,8 @@ export class ListMasterPage {
    * Navigate to the detail page for this item.
    */
   openItem(item: Theme) {
+
+    /* //TODO ItemDetailTabsPage GEEN BACK BUTTON BIJ TABS*/
     this.navCtrl.push('ItemDetailPage', {
       item: item
     });
