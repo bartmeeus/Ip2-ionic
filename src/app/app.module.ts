@@ -7,7 +7,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {Themes} from "../providers/providers";
+import {Authentication} from "../providers/authetication/auth-service"
 import {ListMasterPage} from "../pages/list-master/list-master";
+import {LoginPage} from "../pages/login/login.component";
 import {HttpClientModule} from "@angular/common/http";
 import {Api} from "../providers/api/api";
 import {ItemDetailPage} from "../pages/item-detail/item-detail";
@@ -16,7 +18,8 @@ import {ItemDetailPage} from "../pages/item-detail/item-detail";
   declarations: [
     MyApp,
     HomePage,
-    ListMasterPage
+    ListMasterPage,
+    LoginPage,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import {ItemDetailPage} from "../pages/item-detail/item-detail";
   entryComponents: [
     MyApp,
     // HomePage,
+    LoginPage,
      ListMasterPage
   ],
   providers: [
@@ -34,6 +38,7 @@ import {ItemDetailPage} from "../pages/item-detail/item-detail";
     Themes,
     StatusBar,
     SplashScreen,
+    Authentication,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

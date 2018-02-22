@@ -5,11 +5,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import {ListMasterPage} from "../pages/list-master/list-master";
+import {LoginPage} from "../pages/login/login.component";
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ListMasterPage;
+  rootPage:any = HomePage;//ListMasterPage;
 
   @ViewChild(Nav) nav: NavController;
 
