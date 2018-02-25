@@ -11,6 +11,7 @@ import { Themes } from '../../providers/providers';
 export class ItemDetailPage {
   item: any;
   editing: any;
+  detailtype: string ="overview";
 
   constructor(public navCtrl: NavController, navParams: NavParams, items: Themes) {
     this.item = navParams.get('item') || items.defaultTheme;
