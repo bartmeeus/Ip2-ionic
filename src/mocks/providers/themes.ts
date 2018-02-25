@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Theme } from '../../models/theme';
+import {Injectable} from '@angular/core';
+import {Theme} from '../../models/theme';
 
 
 @Injectable()
@@ -10,28 +10,35 @@ export class Themes {
     "name": "Reiskoffer",
     "description": "We gaan op reis en we nemen mee",
     "tags": "REIS",
-    "themePic":"assets/imgs/logo.png"
+    "themePic": "assets/imgs/logo.png"
   };
 
   constructor() {
     let themes = [
       {
-        "name": "Reis",
-        "description": "We gaan op reis en we nemen mee",
-        "tags": "REIS",
-        "themePic":"assets/imgs/logo.png"
+        "themeName": "Reis",
+        "themeDescription": "We gaan op reis en we nemen mee",
+        "themeTags": ["REIS", "REIZEN"],
+        "themeCards": [{"name": "kaartnaam1"}, {"name": "kaartnaam2"}],
+        "themeCategories": [{"name": "cat1"}, {"name": "cat2"}],
+        "themeOrganiser": [{"name": "Jos", "email": "abc@egf"}]
       },
       {
-        "name": "Winkelen",
-        "description": "Waar gaan we winkelen",
-        "tags": "WINKEL",
-        "themePic":"assets/imgs/logo.png"
+        "themeName": "Winkelen",
+        "themeDescription": "Waar gaan we winkelen",
+        "themeTags": ["WINKEL"],
+        "themeCards": [{"name": "kaartnaam1"}, {"name": "kaartnaam2"}],
+        "themeCategories": [{"name": "cat1"}, {"name": "cat2"}],
+        "themeOrganiser": [{"name": "Jos", "email": "abc@egf"}]
       },
       {
-        "name": "Café",
-        "description": "Waar gaan we op café",
-        "tags": "BAR",
-        "themePic":"assets/imgs/logo.png"
+        "themeName": "Café",
+        "themeDescription": "Waar gaan we op café",
+        "themeTags": ["BAR"],
+        "themeCards": [{"name": "kaartnaam1"}, {"name": "kaartnaam2"}],
+        "themeCategories": [{"name": "cat1"}, {"name": "cat2"}],
+        "themeOrganiser": [{"name": "Jos", "email": "abc@egf"}]
+
       }
     ];
 

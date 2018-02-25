@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ item.name }}</ion-title>
+    <ion-title>{{ item.themeName }}</ion-title>
   </ion-navbar>
 
   <ion-segment [(ngModel)]="detailtype">
@@ -31,18 +31,21 @@
       <div class="item-detail" padding>
 
         <ion-label color="primary" stacked>Naam</ion-label>
-        <h2 *ngIf="editing != 1">{{item.name}}</h2>
-        <ion-textarea *ngIf="editing == 1" [(ngModel)]="item.name">{{item.name}}</ion-textarea>
+        <h2 *ngIf="editing != 1">{{item.themeName}}</h2>
+        <ion-textarea *ngIf="editing == 1" [(ngModel)]="item.themeName">{{item.themeName}}</ion-textarea>
 
 
         <ion-label color="primary" stacked>Beschrijving</ion-label>
-        <p *ngIf="editing != 1">{{item.description}}</p>
-        <ion-textarea *ngIf="editing == 1" [(ngModel)]="item.description"></ion-textarea>
+        <p *ngIf="editing != 1">{{item.themeDescription}}</p>
+        <ion-textarea *ngIf="editing == 1" [(ngModel)]="item.themeDescription"></ion-textarea>
 
         <ion-label color="primary" stacked>Tag</ion-label>
-        <p *ngIf="editing != 1">{{item.tags}}</p>
-        <ion-textarea *ngIf="editing == 1" [(ngModel)]="item.tags">{{item.tags}}</ion-textarea>
-
+        <span *ngIf="editing != 1">
+          <p *ngFor="let tag of item.themeTags">{{tag}}</p>
+        </span>
+        <span *ngIf="editing == 1">
+          <ion-textarea *ngFor="let tag of item.themeTags;let i = index" [(ngModel)]="item.themeTags[i]">{{tag}}</ion-textarea>
+        </span>
         <button ion-button (click)="editing === 1 ? save() : editing=1">{{editing===1 ? "Opslaan" :
           "Wijzigen"}}
         </button>
@@ -50,13 +53,28 @@
     </div>
 
     <div *ngSwitchCase="'cards'">
-      Een kaart hier
+      Een kaart hier:
+
+      <ion-item *ngFor="let card of item.themeCards">
+        {{card.name}}
+      </ion-item>
     </div>
+
     <div *ngSwitchCase="'categories'">
-      Een categorie hier
+      Een categorie hier:
+
+      <ion-item *ngFor="let category of item.themeCategories">
+        {{category.name}}
+      </ion-item>
     </div>
+
     <div *ngSwitchCase="'organisers'">
-      Een organisator hier
+      Een organisator hier:
+
+      <ion-item *ngFor="let organiser of item.themeOrganiser">
+        naam:{{organiser.name}} <br>
+        email:{{organiser.email}}
+      </ion-item>
     </div>
   </div>
 </ion-content>

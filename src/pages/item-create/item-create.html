@@ -28,33 +28,24 @@
 
 <ion-content>
   <form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">
-    <!--<input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />-->
-    <!--<div class="profile-image-wrapper" (click)="getPicture()">-->
-      <!--<div class="profile-image-placeholder" *ngIf="!this.form.controls.profilePic.value">-->
-        <!--<ion-icon name="add"></ion-icon>-->
-        <!--<div>-->
-          <!--&lt;!&ndash;{{ 'ITEM_CREATE_CHOOSE_IMAGE' | translate }}&ndash;&gt;-->
-          <!--Image toevoegen-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.profilePic.value"></div>-->
-    <!--</div>-->
+
     <ion-list>
       <ion-item>
         <!--<ion-input type="text" placeholder="{{ 'ITEM_NAME_PLACEHOLDER' | translate }}" formControlName="name"></ion-input>-->
-        <ion-input type="text" placeholder="Naam" formControlName="name"></ion-input>
+        <ion-input type="text" placeholder="Naam" formControlName="themeName"></ion-input>
 
       </ion-item>
       <ion-item>
         <!--<ion-input type="text" placeholder="{{ 'ITEM_NAME_PLACEHOLDER' | translate }}" formControlName="name"></ion-input>-->
-        <ion-input type="text" placeholder="Beschrijving" formControlName="description"></ion-input>
+        <ion-textarea type="text" placeholder="Beschrijving" formControlName="themeDescription"></ion-textarea>
 
       </ion-item>
-      <ion-item>
-        <ion-input type="text" placeholder="Tags" formControlName="tags"></ion-input>
-
+      <div>
+      <ion-item *ngFor="let tag of tags; let i = index">
+        <ion-input type="text" placeholder="Tags" [(ngModel)]=tags[i] formControlName="themeTags">{{tags[0]}}</ion-input>
         <!--<ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="about"></ion-input>-->
       </ion-item>
+      </div>
     </ion-list>
   </form>
 </ion-content>
