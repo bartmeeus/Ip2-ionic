@@ -1,25 +1,24 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar no-border-bottom>
     <ion-title>{{ item.themeName }}</ion-title>
   </ion-navbar>
-
-  <ion-segment [(ngModel)]="detailtype">
-    <ion-segment-button value="overview">
-      Overview
-    </ion-segment-button>
-    <ion-segment-button value="organisers">
-      organisators
-    </ion-segment-button>
-    <ion-segment-button value="categories">
-      Categorieën
-    </ion-segment-button>
-    <ion-segment-button value="cards">
-      Kaarten
-    </ion-segment-button>
-
-  </ion-segment>
-
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="detailtype" class="segments">
+      <ion-segment-button value="overview">
+        Overview
+      </ion-segment-button>
+      <ion-segment-button value="organisers">
+        Organisators
+      </ion-segment-button>
+      <ion-segment-button value="categories">
+        Categorieën
+      </ion-segment-button>
+      <ion-segment-button value="cards">
+        Kaarten
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 
@@ -44,7 +43,8 @@
           <p *ngFor="let tag of item.themeTags">{{tag}}</p>
         </span>
         <span *ngIf="editing == 1">
-          <ion-textarea *ngFor="let tag of item.themeTags;let i = index" [(ngModel)]="item.themeTags[i]">{{tag}}</ion-textarea>
+          <ion-textarea *ngFor="let tag of item.themeTags;let i = index"
+                        [(ngModel)]="item.themeTags[i]">{{tag}}</ion-textarea>
         </span>
         <button ion-button (click)="editing === 1 ? save() : editing=1">{{editing===1 ? "Opslaan" :
           "Wijzigen"}}

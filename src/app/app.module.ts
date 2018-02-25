@@ -26,7 +26,7 @@ import {ItemDetailPage} from "../pages/item-detail/item-detail";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    // HomePage,
+     HomePage,
      ListMasterPage
   ],
   providers: [

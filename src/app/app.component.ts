@@ -9,7 +9,7 @@ import {ListMasterPage} from "../pages/list-master/list-master";
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ListMasterPage;
+  rootPage:any = HomePage;
 
   @ViewChild(Nav) nav: NavController;
 
